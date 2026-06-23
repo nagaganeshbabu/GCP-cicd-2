@@ -3,9 +3,10 @@ pipeline {
 
     environment {
         PROJECT_ID = 'my-first-gcp-497310'
-        IMAGE_NAME = 'cloudrunlab'
-        DOCKER_REPO = 'afroz2022'
+        IMAGE_NAME = 'cloudrun-cicd-jenkins'
+        DOCKER_REPO = 'ganeshnaga'
         REGION = 'us-central1'
+        GIT_REPO = 'https://github.com/nagaganeshbabu/GCP-cicd-2.git'
 
     }
 
@@ -13,7 +14,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/shaiksaleemafroz/cloudrun-cicd-2026.git'
+                git branch: 'main', url: ${GIT_REPO}
             }
         }
 
